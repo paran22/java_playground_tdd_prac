@@ -1,6 +1,5 @@
 .DS_Store
 HELP.md
-java-baseball-playground/.gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
