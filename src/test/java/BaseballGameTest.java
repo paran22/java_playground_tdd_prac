@@ -7,25 +7,44 @@ import org.junit.jupiter.api.Test;
 public class BaseballGameTest {
 
     private String answer;
+    private String[] answerArray;
     private BaseballGame baseballGame = new BaseballGame();
+
 
     @BeforeEach
     void setUp() {
-        answer = "145";
+        answer = "713";
+        answerArray = answer.split("");
     }
 
     @Test
     void whenInputMatchOneNumWithRightPosition() {
-        String input = "145";
+        String input = "216";
         String[] inputArray = input.split("");
-        String[] answerArray = answer.split("");
         BaseballGame.Count count = baseballGame.play(inputArray, answerArray);
-        System.out.println(count.getStrikeCnt() + "/" + count.getBallCnt());
+
+        Assertions.assertThat(count.getStrikeCnt()).isEqualTo(1);
+        Assertions.assertThat(count.getBallCnt()).isEqualTo(0);
     }
 
     @Test
     void whenInputMatchOneNumWithWrongPosition() {
+        String input = "145";
+        String[] inputArray = input.split("");
+        BaseballGame.Count count = baseballGame.play(inputArray, answerArray);
 
+        Assertions.assertThat(count.getStrikeCnt()).isEqualTo(0);
+        Assertions.assertThat(count.getBallCnt()).isEqualTo(1);
+    }
+
+    @Test
+    void whenInputMatchOneNumWithRightAndOneNumWithWrong() {
+        String input = "123";
+        String[] inputArray = input.split("");
+        BaseballGame.Count count = baseballGame.play(inputArray, answerArray);
+
+        Assertions.assertThat(count.getStrikeCnt()).isEqualTo(1);
+        Assertions.assertThat(count.getBallCnt()).isEqualTo(1);
     }
 
     @Test
