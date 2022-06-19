@@ -6,21 +6,22 @@ import org.junit.jupiter.api.Test;
 
 public class BaseballGameTest {
 
-    private String answer;
-    private String[] answerArray;
+    private String tempAnswer;
+    private String[] tempAnswerArray;
     private BaseballGame baseballGame = new BaseballGame();
 
     @BeforeEach
-    void setUp() {
-        answer = "713";
-        answerArray = answer.split("");
+    void createAnswerForTest() {
+        tempAnswer = "713";
+        tempAnswerArray = tempAnswer.split("");
+        baseballGame.setAnswer(tempAnswerArray);
     }
 
     @Test
     void whenInputMatchOneNumWithRightPosition() {
         String input = "216";
         String[] inputArray = input.split("");
-        BaseballGame.Count count = baseballGame.play(inputArray, answerArray);
+        BaseballGame.Count count = baseballGame.play(inputArray, tempAnswerArray);
 
         Assertions.assertThat(count.getStrikeCnt()).isEqualTo(1);
         Assertions.assertThat(count.getBallCnt()).isEqualTo(0);
@@ -30,7 +31,7 @@ public class BaseballGameTest {
     void whenInputMatchOneNumWithWrongPosition() {
         String input = "145";
         String[] inputArray = input.split("");
-        BaseballGame.Count count = baseballGame.play(inputArray, answerArray);
+        BaseballGame.Count count = baseballGame.play(inputArray, tempAnswerArray);
 
         Assertions.assertThat(count.getStrikeCnt()).isEqualTo(0);
         Assertions.assertThat(count.getBallCnt()).isEqualTo(1);
@@ -40,7 +41,7 @@ public class BaseballGameTest {
     void whenInputMatchOneNumWithRightAndOneNumWithWrong() {
         String input = "123";
         String[] inputArray = input.split("");
-        BaseballGame.Count count = baseballGame.play(inputArray, answerArray);
+        BaseballGame.Count count = baseballGame.play(inputArray, tempAnswerArray);
 
         Assertions.assertThat(count.getStrikeCnt()).isEqualTo(1);
         Assertions.assertThat(count.getBallCnt()).isEqualTo(1);
@@ -50,7 +51,7 @@ public class BaseballGameTest {
     void whenInputNotMatchAnyNum() {
         String input = "249";
         String[] inputArray = input.split("");
-        BaseballGame.Count count = baseballGame.play(inputArray, answerArray);
+        BaseballGame.Count count = baseballGame.play(inputArray, tempAnswerArray);
 
         Assertions.assertThat(count.getStrikeCnt()).isEqualTo(0);
         Assertions.assertThat(count.getBallCnt()).isEqualTo(0);
