@@ -10,7 +10,6 @@ public class BaseballGameTest {
     private String[] answerArray;
     private BaseballGame baseballGame = new BaseballGame();
 
-
     @BeforeEach
     void setUp() {
         answer = "713";
@@ -49,6 +48,16 @@ public class BaseballGameTest {
 
     @Test
     void whenInputNotMatchAnyNum() {
+        String input = "249";
+        String[] inputArray = input.split("");
+        BaseballGame.Count count = baseballGame.play(inputArray, answerArray);
 
+        Assertions.assertThat(count.getStrikeCnt()).isEqualTo(0);
+        Assertions.assertThat(count.getBallCnt()).isEqualTo(0);
+    }
+
+    @Test
+    void createAnswer() {
+        Assertions.assertThat(baseballGame.getAnswer()).isNotEmpty();
     }
 }
