@@ -1,22 +1,23 @@
 package baseball;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class Main {
 
-
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-
-
-        System.out.println("숫자를 입력해 주세요 : ");
-        String input = scanner.nextLine();
-        String[] inputArray = input.split("");
-
         BaseballGame baseballGame = new BaseballGame();
-//        baseballGame.play(inputArray);
+        InputView inputView = new InputView(baseballGame.getNUMBER_OF_DIGITS());
+        ResultView resultView = new ResultView();
+
+        String[] answer = baseballGame.getAnswer();
+        String[] input = inputView.getInput();
+
+        BaseballGame.Count count = baseballGame.play(input, answer);
+        Boolean result = resultView.printResult(count);
+        while (!result) {
+            input = inputView.getInput();
+            count = baseballGame.play(input, answer);
+            result = resultView.printResult(count);
+        }
+        resultView.chooseEndOrRestart();
+
     }
 }

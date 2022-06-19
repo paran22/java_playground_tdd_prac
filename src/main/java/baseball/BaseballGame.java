@@ -20,6 +20,7 @@ public class BaseballGame {
         String[] answer = new String[NUMBER_OF_DIGITS];
         for (int i = 0; i < 3; i++) {
             answer[i] = String.valueOf(random.nextInt(ANSWER_MAX) + ANSWER_MIN);
+            // 서로 다른 수
         }
         return answer;
     }
