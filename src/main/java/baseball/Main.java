@@ -10,7 +10,7 @@ public class Main {
         String[] answer = baseballGame.getAnswer();
         String[] input = inputView.getInput();
 
-        BaseballGame.Count count = baseballGame.play(input, answer);
+        Count count = baseballGame.play(input, answer);
         Boolean result = resultView.printResult(count);
         while (!result) {
             input = inputView.getInput();

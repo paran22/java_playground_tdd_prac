@@ -3,9 +3,8 @@ package baseball;
 import java.util.Scanner;
 
 public class ResultView {
-    private String count;
 
-    public Boolean printResult(BaseballGame.Count count) {
+    public Boolean printResult(Count count) {
         int strikeCnt = count.getStrikeCnt();
         int ballCnt = count.getBallCnt();
         if (strikeCnt == 0) {
