@@ -49,13 +49,6 @@ public class BaseballGame {
         this.answer = answer;
     }
 
-    public int getNUMBER_OF_DIGITS() {
-        return NUMBER_OF_DIGITS;
-    }
-
-    public int getANSWER_MAX() {
-        return ANSWER_MAX;
-    }
 
     public BallCount getBallCount(String[] inputArray, String[] answerArray) {
         BallCount ballCount = new BallCount();
@@ -72,5 +65,22 @@ public class BaseballGame {
             }
         }
         return ballCount;
+    }
+
+    public void startGame() {
+        InputView inputView = new InputView(NUMBER_OF_DIGITS);
+        ResultView resultView = new ResultView();
+
+        String[] answer = getAnswer();
+        String[] input = inputView.getInput();
+
+        BallCount ballCount = getBallCount(input, answer);
+        Boolean result = resultView.printResult(ballCount);
+        while (!result) {
+            input = inputView.getInput();
+            ballCount = getBallCount(input, answer);
+            result = resultView.printResult(ballCount);
+        }
+        resultView.chooseEndOrRestart();
     }
 }

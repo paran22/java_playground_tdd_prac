@@ -7,22 +7,40 @@ public class ResultView {
     public Boolean printResult(BallCount ballCount) {
         int strikeCnt = ballCount.getStrikeCnt();
         int ballCnt = ballCount.getBallCnt();
+
         if (strikeCnt == 0) {
-            System.out.println(ballCnt + "볼");
-            return false;
+            return resultOnlyWithBallCnt(ballCnt);
         }
         if (ballCnt == 0) {
-            System.out.println(strikeCnt + "스트라이크");
-            return false;
+            return resultOnlyWithStrikeCnt(strikeCnt);
         }
 
         if (strikeCnt == 3) {
-            System.out.println(strikeCnt + "스트라이크");
-            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-            return true;
+            return resultWhenAllMatch();
         }
 
+        return resultBallAndStrike(ballCnt, strikeCnt);
+
+    }
+
+    private Boolean resultBallAndStrike(int ballCnt, int strikeCnt) {
         System.out.println(ballCnt + "볼 " + strikeCnt + "스트라이크");
+        return false;
+    }
+
+    private Boolean resultWhenAllMatch() {
+        System.out.println("3스트라이크");
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        return true;
+    }
+
+    private Boolean resultOnlyWithStrikeCnt(int strikeCnt) {
+        System.out.println(strikeCnt + "스트라이크");
+        return false;
+    }
+
+    private Boolean resultOnlyWithBallCnt(int ballCnt) {
+        System.out.println(ballCnt + "볼");
         return false;
     }
 
@@ -34,11 +52,8 @@ public class ResultView {
         if (input.equals("2")) {
             return;
         }
-        restart();
-    }
 
-    private void restart() {
-        String[] args = new String[]{""};
-        Main.main(args);
+        BaseballGame baseballGame = new BaseballGame();
+        baseballGame.startGame();
     }
 }

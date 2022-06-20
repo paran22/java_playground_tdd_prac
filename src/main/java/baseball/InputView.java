@@ -19,11 +19,4 @@ public class InputView {
         return inputArray;
     }
 
-    public String[] getInputArray() {
-        return inputArray;
-    }
-
-    public void setInputArray(String[] inputArray) {
-        this.inputArray = inputArray;
-    }
-}
+   }

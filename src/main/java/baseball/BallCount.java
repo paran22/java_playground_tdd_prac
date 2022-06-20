@@ -9,11 +9,6 @@ public class BallCount {
         this.ballCnt = 0;
     }
 
-    public BallCount(int strikeCnt, int ballCnt) {
-        this.strikeCnt = strikeCnt;
-        this.ballCnt = ballCnt;
-    }
-
     public void plusStrikeCnt() {
         this.strikeCnt += 1;
     }
@@ -26,15 +21,8 @@ public class BallCount {
         return strikeCnt;
     }
 
-    public void setStrikeCnt(int strikeCnt) {
-        this.strikeCnt = strikeCnt;
-    }
-
     public int getBallCnt() {
         return ballCnt;
     }
 
-    public void setBallCnt(int ballCnt) {
-        this.ballCnt = ballCnt;
-    }
 }
