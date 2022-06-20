@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class CountTest {
+public class BallCountTest {
 
     private String tempAnswer;
     private String[] tempAnswerArray;
@@ -21,39 +21,39 @@ public class CountTest {
     void whenInputMatchOneNumWithRightPosition() {
         String input = "216";
         String[] inputArray = input.split("");
-        Count count = baseballGame.play(inputArray, tempAnswerArray);
+        BallCount ballCount = baseballGame.getBallCount(inputArray, tempAnswerArray);
 
-        Assertions.assertThat(count.getStrikeCnt()).isEqualTo(1);
-        Assertions.assertThat(count.getBallCnt()).isEqualTo(0);
+        Assertions.assertThat(ballCount.getStrikeCnt()).isEqualTo(1);
+        Assertions.assertThat(ballCount.getBallCnt()).isEqualTo(0);
     }
 
     @Test
     void whenInputMatchOneNumWithWrongPosition() {
         String input = "145";
         String[] inputArray = input.split("");
-        Count count = baseballGame.play(inputArray, tempAnswerArray);
+        BallCount ballCount = baseballGame.getBallCount(inputArray, tempAnswerArray);
 
-        Assertions.assertThat(count.getStrikeCnt()).isEqualTo(0);
-        Assertions.assertThat(count.getBallCnt()).isEqualTo(1);
+        Assertions.assertThat(ballCount.getStrikeCnt()).isEqualTo(0);
+        Assertions.assertThat(ballCount.getBallCnt()).isEqualTo(1);
     }
 
     @Test
     void whenInputMatchOneNumWithRightAndOneNumWithWrong() {
         String input = "123";
         String[] inputArray = input.split("");
-        Count count = baseballGame.play(inputArray, tempAnswerArray);
+        BallCount ballCount = baseballGame.getBallCount(inputArray, tempAnswerArray);
 
-        Assertions.assertThat(count.getStrikeCnt()).isEqualTo(1);
-        Assertions.assertThat(count.getBallCnt()).isEqualTo(1);
+        Assertions.assertThat(ballCount.getStrikeCnt()).isEqualTo(1);
+        Assertions.assertThat(ballCount.getBallCnt()).isEqualTo(1);
     }
 
     @Test
     void whenInputNotMatchAnyNum() {
         String input = "249";
         String[] inputArray = input.split("");
-        Count count = baseballGame.play(inputArray, tempAnswerArray);
+        BallCount ballCount = baseballGame.getBallCount(inputArray, tempAnswerArray);
 
-        Assertions.assertThat(count.getStrikeCnt()).isEqualTo(0);
-        Assertions.assertThat(count.getBallCnt()).isEqualTo(0);
+        Assertions.assertThat(ballCount.getStrikeCnt()).isEqualTo(0);
+        Assertions.assertThat(ballCount.getBallCnt()).isEqualTo(0);
     }
 }

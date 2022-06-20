@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class ResultView {
 
-    public Boolean printResult(Count count) {
-        int strikeCnt = count.getStrikeCnt();
-        int ballCnt = count.getBallCnt();
+    public Boolean printResult(BallCount ballCount) {
+        int strikeCnt = ballCount.getStrikeCnt();
+        int ballCnt = ballCount.getBallCnt();
         if (strikeCnt == 0) {
             System.out.println(ballCnt + "볼");
             return false;

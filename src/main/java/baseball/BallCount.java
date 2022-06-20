@@ -1,15 +1,15 @@
 package baseball;
 
-public class Count {
+public class BallCount {
     private int strikeCnt;
     private int ballCnt;
 
-    public Count() {
+    public BallCount() {
         this.strikeCnt = 0;
         this.ballCnt = 0;
     }
 
-    public Count(int strikeCnt, int ballCnt) {
+    public BallCount(int strikeCnt, int ballCnt) {
         this.strikeCnt = strikeCnt;
         this.ballCnt = ballCnt;
     }

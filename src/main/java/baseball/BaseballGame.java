@@ -57,21 +57,20 @@ public class BaseballGame {
         return ANSWER_MAX;
     }
 
-
-    public Count play(String[] inputArray, String[] answerArray) {
-        Count count = new Count();
+    public BallCount getBallCount(String[] inputArray, String[] answerArray) {
+        BallCount ballCount = new BallCount();
 
         for (int i = 0; i < NUMBER_OF_DIGITS; i++) {
             if (inputArray[i].equals(answerArray[i])) {
-                count.plusStrikeCnt();
+                ballCount.plusStrikeCnt();
                 continue;
             }
             for (int j = 0; j < NUMBER_OF_DIGITS; j++) {
                 if (answerArray[j].equals(inputArray[i])) {
-                    count.plusBallCnt();
+                    ballCount.plusBallCnt();
                 }
             }
         }
-        return count;
+        return ballCount;
     }
 }

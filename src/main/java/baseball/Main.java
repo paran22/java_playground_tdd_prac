@@ -10,12 +10,12 @@ public class Main {
         String[] answer = baseballGame.getAnswer();
         String[] input = inputView.getInput();
 
-        Count count = baseballGame.play(input, answer);
-        Boolean result = resultView.printResult(count);
+        BallCount ballCount = baseballGame.getBallCount(input, answer);
+        Boolean result = resultView.printResult(ballCount);
         while (!result) {
             input = inputView.getInput();
-            count = baseballGame.play(input, answer);
-            result = resultView.printResult(count);
+            ballCount = baseballGame.getBallCount(input, answer);
+            result = resultView.printResult(ballCount);
         }
         resultView.chooseEndOrRestart();
 
